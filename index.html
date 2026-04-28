@@ -1,571 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Esraa Ahmed — Data Scientist & AI Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg: #f4f3ef;
-  --surface: #ffffff;
-  --surface2: #f9f8f5;
-  --ink: #111827;
-  --ink2: #374151;
-  --muted: #6b7280;
-  --faint: #e5e4e0;
-  --blue: #1a4fcb;
-  --blue-soft: #eef2ff;
-  --teal: #0a8a7a;
-  --teal-soft: #e6f7f5;
-  --border: #e2e1dd;
-  --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
-  --shadow: 0 4px 20px rgba(0,0,0,0.09);
-  --serif: 'Lora', Georgia, serif;
-  --sans: 'DM Sans', sans-serif;
-  --mono: 'JetBrains Mono', monospace;
-}
-html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esraa Ahmed | AI Engineer & Data Scientist</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a; /* Midnight Slate */
+            --surface: rgba(30, 41, 59, 0.7);
+            --accent: #38bdf8; /* Sky Blue Neon */
+            --accent-low: rgba(56, 189, 248, 0.1);
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
 
-/* NAV */
-nav {
-  position: fixed; top: 0; width: 100%; z-index: 100;
-  padding: 0 4rem; height: 64px;
-  background: rgba(244,243,239,0.93); backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
-}
-.nav-logo { font-family: var(--serif); font-weight: 700; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
-.nav-logo span { color: var(--blue); }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink); }
-.nav-hire { background: var(--ink) !important; color: #fff !important; padding: 0.45rem 1.2rem; border-radius: 6px; font-weight: 600 !important; transition: background 0.2s !important; }
-.nav-hire:hover { background: var(--blue) !important; color: #fff !important; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: var(--bg); 
+            color: var(--text-main); 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-/* HERO */
-.hero-wrap { max-width: 1200px; margin: 0 auto; padding: 9rem 4rem 5rem; }
-.hero { display: grid; grid-template-columns: auto 1fr; gap: 5rem; align-items: center; }
-.hero-photo-col { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
-.hero-photo {
-  width: 260px; height: 320px; border-radius: 14px;
-  background: var(--surface); border: 2px dashed var(--border);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem;
-  overflow: hidden; position: relative;
-}
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: none; }
-.ph-icon { width: 60px; height: 60px; border-radius: 50%; background: var(--blue-soft); display: flex; align-items: center; justify-content: center; font-size: 1.7rem; }
-.ph-text { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-align: center; line-height: 1.6; }
-.avail-badge { display: flex; align-items: center; gap: 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.9rem; font-size: 0.78rem; font-family: var(--mono); color: var(--teal); box-shadow: var(--shadow-sm); }
-.dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: blink 2s infinite; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+        /* Animated Background */
+        .bg-glow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+            z-index: -1;
+        }
 
-.hero-text {}
-.hero-eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; }
-h1.hero-name { font-family: var(--serif); font-size: clamp(2.5rem, 4.5vw, 3.8rem); font-weight: 700; line-height: 1.13; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.2rem; }
-.hero-sub { font-size: 1.05rem; color: var(--ink2); line-height: 1.85; margin-bottom: 2rem; max-width: 540px; }
-.hero-sub strong { color: var(--ink); font-weight: 600; }
-.hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
-.btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--ink); color: #fff; font-family: var(--sans); font-weight: 600; font-size: 0.9rem; padding: 0.78rem 1.75rem; border-radius: 8px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
-.btn-primary:hover { background: var(--blue); transform: translateY(-1px); }
-.btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; border: 1.5px solid var(--border); color: var(--ink2); font-family: var(--sans); font-weight: 500; font-size: 0.9rem; padding: 0.78rem 1.5rem; border-radius: 8px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
-.btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
-.lang-row { display: flex; gap: 0.5rem; align-items: center; font-size: 0.82rem; color: var(--muted); }
-.lang-tag { background: var(--faint); border-radius: 4px; padding: 0.2rem 0.6rem; font-family: var(--mono); font-size: 0.72rem; color: var(--ink2); }
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.5rem 10%; position: fixed; width: 100%; top: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border); z-index: 1000;
+        }
 
-/* METRICS */
-.metrics-strip { background: var(--ink); padding: 2.5rem 4rem; }
-.metrics-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); text-align: center; }
-.metric { padding: 0 1.5rem; border-right: 1px solid rgba(255,255,255,0.1); }
-.metric:last-child { border-right: none; }
-.metric-num { font-family: var(--serif); font-size: 2.6rem; font-weight: 700; color: #fff; line-height: 1; }
-.metric-num em { color: #93c5fd; font-style: normal; }
-.metric-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.4rem; letter-spacing: 0.04em; }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--accent); }
 
-/* SECTIONS */
-section { padding: 5.5rem 4rem; }
-.section-inner { max-width: 1100px; margin: 0 auto; }
-.section-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
-h2.st { font-family: var(--serif); font-size: clamp(1.8rem,3.5vw,2.5rem); font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 0.65rem; line-height: 1.2; }
-.sub { color: var(--muted); font-size: 0.97rem; margin-bottom: 3rem; max-width: 550px; line-height: 1.75; }
-.alt { background: var(--surface2); }
-.white { background: var(--surface); }
-.hr { height: 1px; background: var(--border); }
+        section { padding: 100px 10%; max-width: 1400px; margin: 0 auto; }
 
-/* VALUE */
-.value-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-.vc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: box-shadow 0.2s, transform 0.2s; }
-.vc:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
-.vc-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.2rem; }
-.ic-b { background: var(--blue-soft); }
-.ic-t { background: var(--teal-soft); }
-.ic-w { background: #fef9ee; }
-.vc h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; }
-.vc p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+        /* HERO & ABOUT COMBINED */
+        .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
+        .badge { 
+            background: var(--accent-low); color: var(--accent);
+            padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;
+            font-family: 'JetBrains Mono'; border: 1px solid var(--accent);
+            display: inline-block; margin-bottom: 1rem;
+        }
+        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero p { max-width: 600px; color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem; }
 
-/* ABOUT */
-.about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: start; }
-.about-text p { color: var(--ink2); margin-bottom: 1.1rem; font-size: 0.97rem; line-height: 1.85; }
-.about-text p strong { color: var(--ink); font-weight: 600; }
-.about-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.5rem; }
-.alink { display: flex; align-items: flex-start; gap: 0.75rem; color: var(--ink2); text-decoration: none; font-size: 0.85rem; padding: 0.6rem 0.9rem; border: 1px solid var(--border); border-radius: 7px; background: var(--surface); transition: border-color 0.2s, background 0.2s, color 0.2s; font-family: var(--mono); }
-.alink:hover { border-color: var(--blue); background: var(--blue-soft); color: var(--blue); }
-.alink small { font-size: 0.7rem; color: var(--muted); font-family: var(--sans); display: block; margin-top: 0.1rem; }
-.icard { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 1rem; box-shadow: var(--shadow-sm); }
-.icard-head { background: var(--ink); padding: 0.7rem 1.25rem; }
-.icard-head h4 { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
-.irow { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 1.25rem; border-bottom: 1px solid var(--faint); font-size: 0.86rem; }
-.irow:last-child { border-bottom: none; }
-.irow .k { color: var(--muted); }
-.irow .v { color: var(--ink); font-weight: 500; }
-.badge-t { background: var(--teal-soft); color: var(--teal); font-size: 0.72rem; padding: 0.12rem 0.5rem; border-radius: 4px; font-weight: 600; }
+        /* METRICS GRID */
+        .metrics { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem; margin-top: 2rem;
+        }
+        .metric-card {
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 1.5rem; border-radius: 16px; position: relative;
+            overflow: hidden;
+        }
+        .metric-card h3 { font-size: 2rem; color: var(--accent); }
+        .metric-card p { font-size: 0.8rem; margin: 0; }
 
-/* SKILLS */
-.clusters { display: flex; flex-direction: column; gap: 1.75rem; }
-.cl-name { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.5rem; }
-.cl-name::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.pill { font-size: 0.82rem; font-weight: 500; padding: 0.3rem 0.82rem; border-radius: 999px; border: 1.5px solid var(--border); background: var(--surface); color: var(--ink2); transition: all 0.15s; cursor: default; }
-.pill:hover, .pill.hi { background: var(--blue-soft); border-color: #b8caff; color: var(--blue); }
+        /* PROJECTS: SIDE-SCROLL OR MASONRY */
+        .project-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: var(--surface); border-radius: 24px; padding: 2rem;
+            border: 1px solid var(--border); transition: 0.3s;
+            display: flex; flex-direction: column; gap: 1rem;
+        }
+        .project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .project-tag { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--accent); }
+        .project-card h4 { font-size: 1.5rem; }
 
-/* EXPERIENCE */
-.timeline { position: relative; }
-.timeline::before { content: ''; position: absolute; left: 1.5rem; top: 0; bottom: 0; width: 1px; background: var(--border); }
-.ti { display: grid; grid-template-columns: 5rem 1fr; gap: 2rem; margin-bottom: 3rem; }
-.ti-yr { text-align: right; padding-top: 0.2rem; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); line-height: 1.4; padding-right: 1rem; position: relative; }
-.ti-yr::after { content: ''; position: absolute; right: -1px; top: 0.5rem; width: 9px; height: 9px; border-radius: 50%; background: var(--surface); border: 2px solid var(--blue); transform: translateX(50%); }
-.ti-yr.dim::after { border-color: var(--border); }
-.ti-body {}
-.jh { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.2rem; }
-.jt { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--ink); }
-.jco { color: var(--teal); font-size: 0.87rem; font-weight: 600; margin-bottom: 0.9rem; }
-.jtag { background: var(--blue-soft); color: var(--blue); font-size: 0.72rem; font-family: var(--mono); padding: 0.18rem 0.6rem; border-radius: 4px; }
-.jtag.rem { background: var(--teal-soft); color: var(--teal); }
-.jb { list-style: none; }
-.jb li { font-size: 0.91rem; color: var(--ink2); padding: 0.28rem 0 0.28rem 1.4rem; position: relative; line-height: 1.7; border-bottom: 1px solid var(--faint); }
-.jb li:last-child { border-bottom: none; }
-.jb li::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-size: 0.8rem; top: 0.42rem; }
-.jb li strong { color: var(--ink); font-weight: 600; }
-.rp { display: inline-block; background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; font-size: 0.72rem; font-family: var(--mono); padding: 0.08rem 0.45rem; border-radius: 4px; margin-left: 0.3rem; font-weight: 600; }
+        /* SKILLS: CATEGORIZED BOXES */
+        .skills-container {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .skill-box {
+            background: var(--glass); border: 1px solid var(--border);
+            padding: 1.5rem; border-radius: 12px;
+        }
+        .skill-box h5 { margin-bottom: 1rem; color: var(--accent); font-family: 'JetBrains Mono'; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag { 
+            background: rgba(255,255,255,0.05); padding: 4px 10px; 
+            border-radius: 6px; font-size: 0.8rem; border: 1px solid var(--border);
+        }
 
-/* PROJECTS */
-.proj-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
-.pc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; transition: box-shadow 0.2s, transform 0.2s; }
-.pc:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-.pc.ft { border-color: var(--blue); border-width: 1.5px; }
-.pct { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.9rem; }
-.pnum { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.08em; }
-.pawrd { display: flex; align-items: center; gap: 0.3rem; font-size: 0.7rem; font-family: var(--mono); background: #fefce8; color: #a16207; border: 1px solid #fde68a; padding: 0.18rem 0.55rem; border-radius: 4px; }
-.pname { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
-.pc.ft .pname { color: var(--blue); }
-.pout { font-size: 0.84rem; font-weight: 600; color: var(--teal); background: var(--teal-soft); border-radius: 5px; padding: 0.35rem 0.7rem; margin-bottom: 0.9rem; display: inline-block; }
-.pdesc { color: var(--muted); font-size: 0.87rem; line-height: 1.75; margin-bottom: 1.4rem; flex: 1; }
-.pdesc strong { color: var(--ink2); font-weight: 600; }
-.pstack { display: flex; flex-wrap: wrap; gap: 0.3rem; }
-.ptech { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); background: var(--bg); border: 1px solid var(--border); padding: 0.18rem 0.5rem; border-radius: 4px; }
+        /* AWARDS & CONTACT */
+        .award-item {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 1rem; border-bottom: 1px solid var(--border);
+        }
+        
+        .contact-footer {
+            text-align: center; background: var(--surface);
+            padding: 4rem 2rem; border-radius: 30px; margin-top: 4rem;
+        }
+        .btn {
+            background: var(--accent); color: var(--bg);
+            padding: 1rem 2rem; border-radius: 12px; font-weight: 700;
+            text-decoration: none; display: inline-block; transition: 0.3s;
+        }
+        .btn:hover { opacity: 0.9; transform: scale(1.05); }
 
-/* WRITING */
-.writing-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
-.ac { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.7rem; transition: box-shadow 0.2s, transform 0.2s; }
-.ac:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-color: var(--blue); }
-.atag { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
-.atitle { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--ink); line-height: 1.45; }
-.adesc { font-size: 0.86rem; color: var(--muted); line-height: 1.7; }
-.aread { font-size: 0.8rem; font-weight: 600; color: var(--blue); margin-top: auto; }
-
-/* AWARDS */
-.awards-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; }
-.awc { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: box-shadow 0.2s; }
-.awc:hover { box-shadow: var(--shadow); }
-.awi { width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0; background: #fefce8; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
-.awt { font-size: 0.93rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
-.awo { font-size: 0.8rem; color: var(--teal); font-weight: 500; margin-bottom: 0.2rem; }
-.awd { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); }
-.awl { color: var(--blue); text-decoration: none; font-size: 0.75rem; }
-.awl:hover { text-decoration: underline; }
-
-/* CONTACT */
-.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-.contact-text h2 { font-family: var(--serif); font-size: clamp(1.9rem,3.5vw,2.6rem); font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1rem; line-height: 1.2; }
-.contact-text h2 span { color: var(--blue); }
-.contact-text p { color: var(--muted); font-size: 0.97rem; line-height: 1.8; margin-bottom: 1.75rem; }
-.cemail { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--blue); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.25rem; }
-.cemail:hover { text-decoration: underline; }
-.csocials { display: flex; flex-wrap: wrap; gap: 0.65rem; }
-.csb { display: inline-flex; align-items: center; gap: 0.5rem; border: 1.5px solid var(--border); color: var(--ink2); background: var(--surface); font-size: 0.83rem; font-weight: 500; font-family: var(--mono); padding: 0.5rem 1rem; border-radius: 7px; text-decoration: none; transition: all 0.2s; }
-.csb:hover { border-color: var(--blue); background: var(--blue-soft); color: var(--blue); }
-.contact-card { background: var(--ink); border-radius: 14px; padding: 2.5rem; }
-.contact-card h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 1.5rem; }
-.ccr { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1.2rem; }
-.ccr:last-child { margin-bottom: 0; }
-.cci { width: 36px; height: 36px; background: rgba(255,255,255,0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.95rem; }
-.ccl { font-size: 0.7rem; color: rgba(255,255,255,0.4); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.1rem; }
-.ccv { font-size: 0.9rem; color: #fff; font-weight: 500; }
-.ccv a { color: #93c5fd; text-decoration: none; }
-.ccv a:hover { text-decoration: underline; }
-
-/* FOOTER */
-footer { background: var(--ink); padding: 1.75rem 4rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.3); font-family: var(--mono); flex-wrap: wrap; gap: 1rem; }
-
-/* FADE */
-.fi { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
-.fi.v { opacity: 1; transform: translateY(0); }
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  nav { padding: 0 1.5rem; }
-  .nav-links { display: none; }
-  .hero-wrap { padding: 7rem 1.5rem 3rem; }
-  .hero { grid-template-columns: 1fr; gap: 2rem; }
-  .hero-photo { width: 120px; height: 140px; }
-  .hero-photo-col { flex-direction: row; align-items: center; gap: 1rem; }
-  section { padding: 3.5rem 1.5rem; }
-  .metrics-strip { padding: 2rem 1.5rem; }
-  .metrics-inner { grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
-  .metric { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
-  .value-grid, .about-grid, .proj-grid, .writing-grid, .awards-grid, .contact-layout { grid-template-columns: 1fr; }
-  .ti { grid-template-columns: 3.5rem 1fr; gap: 1rem; }
-  footer { padding: 1.5rem; flex-direction: column; text-align: center; }
-}
-</style>
+        @media (max-width: 768px) {
+            section { padding: 80px 5%; }
+            nav { padding: 1rem 5%; }
+        }
+    </style>
 </head>
 <body>
-
-<nav>
-  <a class="nav-logo" href="#top">Esraa <span>Ahmed</span></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#writing">Writing</a></li>
-    <li><a href="#contact" class="nav-hire">Hire me</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<div class="hero-wrap" id="top">
-  <div class="hero">
-    <div class="hero-photo-col">
-      <div class="hero-photo">
-        <!-- To add your photo: set src="your-photo.jpg" and remove the placeholder div -->
-        <img id="pimg" src="" alt="Esraa Ahmed" />
-        <div id="pph">
-          <div class="ph-icon">👤</div>
-          <div class="ph-text">Replace src=""<br/>with your photo path</div>
+    <div class="bg-glow"></div>
+    
+    <nav>
+        <div class="logo">ESRAA.AI</div>
+        <div style="display: flex; gap: 1.5rem; font-size: 0.9rem;">
+            <a href="#about" style="color: inherit; text-decoration: none;">About</a>
+            <a href="#projects" style="color: inherit; text-decoration: none;">Projects</a>
+            <a href="#contact" style="color: inherit; text-decoration: none;">Contact</a>
         </div>
-      </div>
-      <div class="avail-badge"><div class="dot"></div>Open to work</div>
-    </div>
+    </nav>
 
-    <div class="hero-text">
-      <div class="hero-eyebrow">Data Scientist &amp; AI Engineer · Cairo, Egypt 🇪🇬</div>
-      <h1 class="hero-name">I turn messy data into<br/>AI that earns<br/>business trust.</h1>
-      <p class="hero-sub">
-        5 years building <strong>end-to-end AI systems</strong> — from bilingual LLM chatbots to production forecasting engines. I speak both <strong>Python and boardroom</strong>, bridging engineering teams and non-technical stakeholders to deliver solutions that actually ship.
-      </p>
-      <div class="hero-ctas">
-        <a href="mailto:esraaahmedibrahim2@gmail.com" class="btn-primary">Work with me →</a>
-        <a href="https://github.com/essraahmed" class="btn-ghost" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/esraa-ahmed-ibrahim2" class="btn-ghost" target="_blank">LinkedIn</a>
-      </div>
-      <div class="lang-row">
-        <span style="font-size:0.82rem;color:var(--muted)">Languages:</span>
-        <span class="lang-tag">Arabic — Native</span>
-        <span class="lang-tag">English — Fluent</span>
-        <span style="font-size:0.76rem;color:var(--muted);font-family:var(--mono)">— NLP in both</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- METRICS -->
-<div class="metrics-strip">
-  <div class="metrics-inner">
-    <div class="metric fi"><div class="metric-num">95<em>%</em></div><div class="metric-label">Best forecasting accuracy</div></div>
-    <div class="metric fi"><div class="metric-num">87<em>%</em></div><div class="metric-label">Support queries automated</div></div>
-    <div class="metric fi"><div class="metric-num">12<em>×</em></div><div class="metric-label">Faster data processing</div></div>
-    <div class="metric fi"><div class="metric-num">6M<em>+</em></div><div class="metric-label">Records processed</div></div>
-  </div>
-</div>
-
-<!-- VALUE PROP -->
-<section class="white">
-  <div class="section-inner">
-    <p class="section-label">What I bring</p>
-    <h2 class="st">Not just a data scientist. A partner.</h2>
-    <p class="sub">I've worked directly with technical leads, product managers, and C-level stakeholders — and I know how to earn trust in every room.</p>
-    <div class="value-grid">
-      <div class="vc fi"><div class="vc-icon ic-b">🧠</div><h3>Deep Technical Execution</h3><p>From raw data pipelines to deployed LLMs — I build production-ready AI, not just notebooks. AWS certified, Docker-ready, FastAPI-shipped.</p></div>
-      <div class="vc fi"><div class="vc-icon ic-t">🤝</div><h3>Stakeholder-First Communication</h3><p>I've gathered requirements from non-technical executives and delivered insights they could act on. I translate models into business decisions.</p></div>
-      <div class="vc fi"><div class="vc-icon ic-w">🌐</div><h3>Arabic NLP Specialist</h3><p>Rare bilingual AI expertise — I build systems that work in Arabic and English with equal accuracy. A critical edge in MENA and Gulf markets.</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-inner">
-    <p class="section-label">About</p>
-    <h2 class="st">The person behind the models</h2>
-    <div class="about-grid">
-      <div class="about-text fi">
-        <p>I'm Esraa — a <strong>Data Scientist and AI Engineer</strong> with 5 years of experience delivering end-to-end AI across NLP, LLMs, forecasting, and data engineering. I specialize in systems that don't just work in theory, but <strong>scale in production</strong>.</p>
-        <p>What sets me apart is operating on both sides of the table. I've sat in rooms with <strong>CTOs and engineers</strong> to architect solutions — and in rooms with <strong>business owners and operations leads</strong> to explain what those solutions mean for revenue, efficiency, and customers.</p>
-        <p>I have a deep focus on <strong>Arabic NLP</strong> — a complex, underserved space where I've consistently delivered high-accuracy models for sentiment, chatbots, and voice. With native Arabic and fluent English, I serve clients across <strong>MENA, Gulf, and globally</strong>.</p>
-        <p>I hold an <strong>AWS Data Analytics Specialty</strong> certification and a B.Sc. in Computer Science. I write on Medium about data engineering and ML — practical articles from real project experience.</p>
-        <div class="about-links">
-          <a class="alink" href="https://github.com/essraahmed" target="_blank">⌥&nbsp; github.com/essraahmed<small>Code, projects &amp; open source</small></a>
-          <a class="alink" href="https://medium.com/@essraaahmed" target="_blank">✍&nbsp; medium.com/@essraaahmed<small>Technical writing &amp; tutorials</small></a>
-          <a class="alink" href="https://public.tableau.com/app/profile/esraa.ahmed" target="_blank">◈&nbsp; Tableau Public<small>Data visualizations &amp; dashboards</small></a>
+    <section id="about" class="hero">
+        <span class="badge">Available for Work • Cairo, Egypt</span>
+        <h1>Engineering AI that <span style="color: var(--accent);">scales</span> business trust.</h1>
+        <p>I am a Data Scientist & AI Engineer specializing in end-to-end systems. From <strong>Bilingual LLMs</strong> to <strong>Production ETL pipelines</strong>, I bridge the gap between complex code and executive decisions.</p>
+        
+        <div class="metrics">
+            <div class="metric-card">
+                <h3>95%</h3>
+                <p>Forecasting Accuracy</p>
+            </div>
+            <div class="metric-card">
+                <h3>87%</h3>
+                <p>Queries Automated</p>
+            </div>
+            <div class="metric-card">
+                <h3>12x</h3>
+                <p>Pipeline Speedup</p>
+            </div>
+            <div class="metric-card">
+                <h3>AWS</h3>
+                <p>Data Specialty Certified</p>
+            </div>
         </div>
-      </div>
-      <div class="fi">
-        <div class="icard">
-          <div class="icard-head"><h4>Quick Info</h4></div>
-          <div class="irow"><span class="k">Location</span><span class="v">Cairo, Egypt 🇪🇬</span></div>
-          <div class="irow"><span class="k">Experience</span><span class="v">5 Years</span></div>
-          <div class="irow"><span class="k">Education</span><span class="v">B.Sc. Computer Science</span></div>
-          <div class="irow"><span class="k">Arabic NLP</span><span class="v">Native-level models</span></div>
-          <div class="irow"><span class="k">Availability</span><span class="v"><span class="badge-t">Open to work</span></span></div>
+    </section>
+
+    <section id="projects">
+        <h2 style="margin-bottom: 2rem;">Selected Work</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <span class="project-tag">LLM • NLP • FASTAPI</span>
+                <h4>Travelogue AI</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Ranked 2nd/43 at LangChain Hackathon. A bilingual (Arabic/English) tourism assistant with real-time scraping.</p>
+                <div class="tags">
+                    <span class="tag">LangChain</span><span class="tag">OpenAI</span><span class="tag">Whisper</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <span class="project-tag">DATA ENGINEERING • SPARK</span>
+                <h4>EEHC Energy Platform</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Built a Spark ETL pipeline on Delta Lake for government-scale energy data processing.</p>
+                <div class="tags">
+                    <span class="tag">Apache Spark</span><span class="tag">Delta Lake</span><span class="tag">MongoDB</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <span class="project-tag">TIME SERIES • TABLEAU</span>
+                <h4>CDC Analytics</h4>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Population analytics platform with +50% forecast accuracy improvements for government planners.</p>
+                <div class="tags">
+                    <span class="tag">Time Series</span><span class="tag">Python</span><span class="tag">Tableau</span>
+                </div>
+            </div>
         </div>
-        <div class="icard">
-          <div class="icard-head"><h4>Certifications</h4></div>
-          <div class="irow"><span class="k">AWS Data Analytics Specialty</span><span class="v"><a href="https://bit.ly/3PRPzN2" target="_blank" style="color:var(--teal);font-size:0.78rem;">View ↗</a></span></div>
-          <div class="irow"><span class="k">MCIT AWS Practical DS Academy</span><span class="v"><span class="badge-t">Completed</span></span></div>
+    </section>
+
+    <section id="skills">
+        <h2 style="margin-bottom: 2rem;">The Stack</h2>
+        <div class="skills-container">
+            <div class="skill-box">
+                <h5>LLM & NLP</h5>
+                <div class="tags">
+                    <span class="tag">LangChain</span><span class="tag">LlamaIndex</span><span class="tag">Arabic NLP</span><span class="tag">Transformers</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h5>Engineering</h5>
+                <div class="tags">
+                    <span class="tag">Apache Spark</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">FastAPI</span><span class="tag">ETL</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h5>Analysis</h5>
+                <div class="tags">
+                    <span class="tag">Python</span><span class="tag">Scikit-Learn</span><span class="tag">Tableau</span><span class="tag">Power BI</span>
+                </div>
+            </div>
         </div>
-        <div class="icard">
-          <div class="icard-head"><h4>Core Strengths</h4></div>
-          <div class="irow"><span class="k">LLMs &amp; Chatbots</span><span class="v" style="color:var(--blue);letter-spacing:0.08em;">★★★★★</span></div>
-          <div class="irow"><span class="k">Time Series</span><span class="v" style="color:var(--blue);letter-spacing:0.08em;">★★★★★</span></div>
-          <div class="irow"><span class="k">Arabic NLP</span><span class="v" style="color:var(--blue);letter-spacing:0.08em;">★★★★★</span></div>
-          <div class="irow"><span class="k">Stakeholder Comms</span><span class="v" style="color:var(--blue);letter-spacing:0.08em;">★★★★★</span></div>
-          <div class="irow"><span class="k">Data Engineering</span><span class="v" style="color:var(--blue);letter-spacing:0.08em;">★★★★☆</span></div>
+    </section>
+
+    <section id="awards">
+        <h2 style="margin-bottom: 2rem;">Recognition</h2>
+        <div class="award-item">
+            <i data-lucide="award" style="color: var(--accent);"></i>
+            <div>
+                <p style="font-weight: 600;">2nd Place — LangChain Hackathon</p>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">Lablab MENA · 2023</p>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- SKILLS -->
-<section id="skills" class="alt">
-  <div class="section-inner">
-    <p class="section-label">Tech Stack</p>
-    <h2 class="st">What I build with</h2>
-    <p class="sub">5 years of hands-on production experience across the full AI/ML stack. Highlighted pills = core expertise.</p>
-    <div class="clusters fi">
-      <div><div class="cl-name">LLMs &amp; NLP</div><div class="pills"><span class="pill hi">LangChain</span><span class="pill hi">LlamaIndex</span><span class="pill hi">EmbedChain</span><span class="pill hi">OpenAI API</span><span class="pill hi">Transformers</span><span class="pill hi">Arabic NLP</span><span class="pill">Prompt Engineering</span><span class="pill">Whisper</span><span class="pill">ElevenLabs</span><span class="pill">OCR</span><span class="pill">Speech Recognition</span></div></div>
-      <div><div class="cl-name">Machine Learning</div><div class="pills"><span class="pill hi">Python</span><span class="pill hi">Time Series Forecasting</span><span class="pill hi">Scikit-learn</span><span class="pill">TensorFlow</span><span class="pill">Deep Learning</span><span class="pill">Anomaly Detection</span><span class="pill">Sentiment Analysis</span><span class="pill">Topic Modelling</span><span class="pill">CRISP-DM</span><span class="pill">Web Scraping</span></div></div>
-      <div><div class="cl-name">Data Engineering</div><div class="pills"><span class="pill hi">Apache Spark</span><span class="pill hi">Delta Lake</span><span class="pill hi">ETL Pipelines</span><span class="pill hi">Amazon Redshift</span><span class="pill">SQL</span><span class="pill">PostgreSQL</span><span class="pill">MongoDB</span><span class="pill">Redis</span><span class="pill">Data Warehouse</span></div></div>
-      <div><div class="cl-name">Cloud, Deployment &amp; MLOps</div><div class="pills"><span class="pill hi">AWS</span><span class="pill hi">Docker</span><span class="pill hi">FastAPI</span><span class="pill">CI/CD</span><span class="pill">Prometheus</span><span class="pill">Grafana</span><span class="pill">Linux</span><span class="pill">Streamlit</span></div></div>
-      <div><div class="cl-name">Visualization &amp; Tools</div><div class="pills"><span class="pill hi">Tableau</span><span class="pill hi">Power BI</span><span class="pill">Plotly</span><span class="pill">Apache Superset</span><span class="pill">Git / GitLab</span><span class="pill">Jira</span><span class="pill">Agile</span><span class="pill">Postman</span></div></div>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="white">
-  <div class="section-inner">
-    <p class="section-label">Career</p>
-    <h2 class="st">Where I've made impact</h2>
-    <p class="sub">Every role involved working directly with stakeholders — gathering requirements, presenting results, and aligning AI with business goals.</p>
-    <div class="timeline">
-      <div class="ti fi">
-        <div class="ti-yr">Feb 2025<br/>Present</div>
-        <div class="ti-body">
-          <div class="jh"><div class="jt">Data Scientist</div><span class="jtag rem">Remote</span></div>
-          <div class="jco">Astek Middle East</div>
-          <ul class="jb">
-            <li>Built an end-to-end <strong>time series forecasting system</strong> for monthly user growth predictions <span class="rp">95% accuracy</span></li>
-            <li>Developed and deployed a fully bilingual (Arabic/English) <strong>Customer Service chatbot</strong> with full data privacy compliance — automating the majority of incoming support <span class="rp">92% accuracy</span><span class="rp">87% automated</span></li>
-          </ul>
+        <div class="award-item">
+            <i data-lucide="cloud" style="color: var(--accent);"></i>
+            <div>
+                <p style="font-weight: 600;">AWS Data Analytics Specialty</p>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">Amazon Web Services Certified</p>
+            </div>
         </div>
-      </div>
-      <div class="ti fi">
-        <div class="ti-yr">Nov 2022<br/>Oct 2024</div>
-        <div class="ti-body">
-          <div class="jh"><div class="jt">Data Scientist</div><span class="jtag">Cairo, Egypt</span></div>
-          <div class="jco">Fixed Solutions</div>
-          <ul class="jb">
-            <li>Led <strong>customer care analytics</strong> — analysed chat interactions, built dashboards tracking <strong>10+ operational KPIs</strong>, and implemented scalable data pipelines</li>
-            <li>Developed and launched <strong>Travelogue</strong>, a bilingual AI tourism chatbot — guiding tourists, updating events in real time, resolving complaints <span class="rp">86% Arabic accuracy</span></li>
-            <li>Built a <strong>time series forecasting system</strong> on 6M+ records to predict platform user growth, delivered dashboards to leadership <span class="rp">80% accuracy</span></li>
-            <li>Deployed <strong>Arabic sentiment analysis</strong> — gave the company its first-ever visibility into what Arabic customers actually felt <span class="rp">90% accuracy</span></li>
-            <li>Implemented <strong>multi-threaded data collection</strong> across multiple sources <span class="rp">12× faster</span></li>
-            <li><strong>Worked directly with non-technical stakeholders</strong> — gathered project requirements, translated model outputs into executive-ready insights and business recommendations</li>
-          </ul>
+    </section>
+
+    <section id="contact">
+        <div class="contact-footer">
+            <h2 style="margin-bottom: 1rem;">Ready to build something intelligent?</h2>
+            <p style="color: var(--text-dim); margin-bottom: 2rem;">Currently accepting freelance projects and full-time inquiries.</p>
+            <a href="mailto:esraaahmedibrahim2@gmail.com" class="btn">Get In Touch</a>
+            <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; color: var(--text-dim);">
+                <a href="https://github.com/essraahmed" style="color: inherit; text-decoration: none;">GitHub</a>
+                <a href="https://linkedin.com/in/esraa-ahmed-ibrahim2" style="color: inherit; text-decoration: none;">LinkedIn</a>
+            </div>
         </div>
-      </div>
-      <div class="ti fi">
-        <div class="ti-yr dim">Jan 2019<br/>Apr 2020</div>
-        <div class="ti-body">
-          <div class="jh"><div class="jt">Software Engineer</div><span class="jtag">Cairo, Egypt</span></div>
-          <div class="jco">Effective Value Solutions</div>
-          <ul class="jb">
-            <li>Developed and maintained ERP Next System; designed database using MariaDB; built operational dashboards with Apache Superset</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<div class="hr"></div>
-
-<!-- PROJECTS -->
-<section id="projects" class="alt">
-  <div class="section-inner">
-    <p class="section-label">Projects</p>
-    <h2 class="st">Work that drove real outcomes</h2>
-    <p class="sub">Every project card leads with the business result — because that's what actually matters.</p>
-    <div class="proj-grid">
-      <div class="pc ft fi">
-        <div class="pct"><div class="pnum">01 — NLP / LLM</div><div class="pawrd">🥈 2nd / 43 — LangChain Hackathon</div></div>
-        <div class="pname">Travelogue AI Chatbot</div>
-        <div class="pout">↑ 86% Arabic accuracy · Real-time tourist guidance</div>
-        <p class="pdesc">An AI-powered <strong>bilingual tourism assistant</strong> helping tourists plan vacations, discover live events, and resolve complaints in both Arabic and English. Voice input/output via Whisper + ElevenLabs with real-time web scraping. <strong>Ranked 2nd of 43 projects</strong> at the LangChain MENA Hackathon.</p>
-        <div class="pstack"><span class="ptech">LangChain</span><span class="ptech">EmbedChain</span><span class="ptech">LlamaIndex</span><span class="ptech">OpenAI</span><span class="ptech">Whisper</span><span class="ptech">ElevenLabs</span><span class="ptech">FastAPI</span><span class="ptech">Streamlit</span></div>
-      </div>
-      <div class="pc fi">
-        <div class="pct"><div class="pnum">02 — Chatbot / Automation</div></div>
-        <div class="pname">Bilingual Customer Service Bot</div>
-        <div class="pout">87% of queries automated · 92% accuracy</div>
-        <p class="pdesc">An end-to-end <strong>Arabic/English customer support chatbot</strong> with full data privacy compliance, deployed in a live enterprise environment. Dramatically reduced the human support load while maintaining high accuracy across both languages.</p>
-        <div class="pstack"><span class="ptech">LLM</span><span class="ptech">FastAPI</span><span class="ptech">Docker</span><span class="ptech">Arabic NLP</span><span class="ptech">CI/CD</span></div>
-      </div>
-      <div class="pc fi">
-        <div class="pct"><div class="pnum">03 — Forecasting</div></div>
-        <div class="pname">Cairo Demographic Center (CDC)</div>
-        <div class="pout">+70% plan visibility · +50% forecast accuracy</div>
-        <p class="pdesc">A <strong>government-scale population analytics platform</strong> using multi-source data to study demographics and perform risk analysis. Delivered Tableau dashboards that transformed how planners tracked development progress — results presented to government decision-makers.</p>
-        <div class="pstack"><span class="ptech">Python</span><span class="ptech">Tableau</span><span class="ptech">Time Series</span></div>
-      </div>
-      <div class="pc fi">
-        <div class="pct"><div class="pnum">04 — Data Engineering</div></div>
-        <div class="pname">EEHC Energy Data Platform</div>
-        <div class="pout">Multi-source Spark pipeline · Arabic NLP on energy data</div>
-        <p class="pdesc">Built a <strong>Spark ETL pipeline on Delta Lake</strong> processing large-scale energy data from multiple government sources. Applied topic modelling, clustering, time series, and Arabic sentiment analysis. Designed data quality dashboards for operations teams.</p>
-        <div class="pstack"><span class="ptech">Apache Spark</span><span class="ptech">Delta Lake</span><span class="ptech">MongoDB</span><span class="ptech">NLP</span><span class="ptech">Tableau</span><span class="ptech">Superset</span></div>
-      </div>
-      <div class="pc fi">
-        <div class="pct"><div class="pnum">05 — NLP</div></div>
-        <div class="pname">Arabic Customer Sentiment System</div>
-        <div class="pout">First-ever Arabic sentiment visibility · 90% accuracy</div>
-        <p class="pdesc">Designed and deployed a <strong>sentiment analysis system for Arabic customer feedback</strong> — filling a gap that had never been addressed before. Gave leadership its first real window into what customers felt, driving strategic decisions on service quality.</p>
-        <div class="pstack"><span class="ptech">Transformers</span><span class="ptech">Arabic NLP</span><span class="ptech">Python</span><span class="ptech">Dashboard</span></div>
-      </div>
-      <div class="pc fi">
-        <div class="pct"><div class="pnum">06 — Analytics</div></div>
-        <div class="pname">Customer Care Analytics Platform</div>
-        <div class="pout">10+ KPI dashboards · Pipeline automation</div>
-        <p class="pdesc">Built a full <strong>customer operations analytics platform</strong> — analysing thousands of chat interactions, tracking 10+ operational KPIs in Tableau, automating data pipelines. Presented weekly insights directly to leadership and operations management.</p>
-        <div class="pstack"><span class="ptech">SQL</span><span class="ptech">Python</span><span class="ptech">Tableau</span><span class="ptech">ETL</span><span class="ptech">NLP</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- WRITING -->
-<section id="writing" class="white">
-  <div class="section-inner">
-    <p class="section-label">Writing</p>
-    <h2 class="st">I share what I know</h2>
-    <p class="sub">Practical articles from real project experience — not theory. Published on Medium.</p>
-    <div class="writing-grid">
-      <a class="ac fi" href="https://medium.com/@essraaahmed" target="_blank">
-        <div class="atag">Data Engineering · AWS</div>
-        <div class="atitle">Data Warehouse With Amazon Redshift</div>
-        <p class="adesc">A practical walkthrough of building a cloud data warehouse on Amazon Redshift — from architecture decisions to implementation, drawn from real project experience.</p>
-        <div class="aread">Read on Medium →</div>
-      </a>
-      <a class="ac fi" href="https://medium.com/@essraaahmed" target="_blank">
-        <div class="atag">Visualization · Business Intelligence</div>
-        <div class="atitle">Visualizing Redshift Data Using Power BI</div>
-        <p class="adesc">Step-by-step guide to connecting Amazon Redshift to Power BI — turning warehouse data into executive-ready dashboards that non-technical stakeholders actually use.</p>
-        <div class="aread">Read on Medium →</div>
-      </a>
-      <a class="ac fi" href="https://medium.com/@essraaahmed" target="_blank">
-        <div class="atag">Machine Learning · Best Practices</div>
-        <div class="atitle">Imbalanced Data Techniques: Pros and Cons</div>
-        <p class="adesc">An honest comparison of the most common approaches for handling imbalanced datasets — SMOTE, undersampling, class weights — with real tradeoffs explained clearly.</p>
-        <div class="aread">Read on Medium →</div>
-      </a>
-      <a class="ac fi" href="https://medium.com/@essraaahmed" target="_blank" style="align-items:center;justify-content:center;text-align:center;border-style:dashed;background:var(--bg);">
-        <div style="font-size:1.5rem;margin-bottom:0.5rem;">✍</div>
-        <div style="font-family:var(--serif);font-size:1rem;color:var(--muted);font-weight:600;">More articles on Medium</div>
-        <div class="aread" style="justify-content:center;margin-top:0.4rem;">View all →</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- AWARDS -->
-<section id="awards" class="alt">
-  <div class="section-inner">
-    <p class="section-label">Recognition</p>
-    <h2 class="st">Awards &amp; certifications</h2>
-    <div class="awards-grid">
-      <div class="awc fi"><div class="awi">🥈</div><div><div class="awt">2nd Place — LangChain Hackathon</div><div class="awo">Lablab MENA · Out of 43 projects</div><div class="awd">May 2023 · <a href="https://bit.ly/3Zo9FEn" class="awl" target="_blank">View certificate ↗</a></div></div></div>
-      <div class="awc fi"><div class="awi">🏅</div><div><div class="awt">Service Excellence Award</div><div class="awo">Fixed Solutions</div><div class="awd">Jun 2023 · Extraordinary contribution &amp; commitment</div></div></div>
-      <div class="awc fi"><div class="awi">☁️</div><div><div class="awt">AWS Data Analytics Specialty</div><div class="awo">Amazon Web Services · Certified</div><div class="awd"><a href="https://bit.ly/3PRPzN2" class="awl" target="_blank">View certificate ↗</a></div></div></div>
-      <div class="awc fi"><div class="awi">🎓</div><div><div class="awt">MCIT AWS Practical DS Academy</div><div class="awo">Ministry of Communications, Egypt</div><div class="awd">Sep 2021 – May 2022 · Completed</div></div></div>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- CONTACT -->
-<section id="contact" class="white">
-  <div class="section-inner">
-    <div class="contact-layout">
-      <div class="contact-text fi">
-        <p class="section-label">Contact</p>
-        <h2>Let's build something <span>intelligent</span> together.</h2>
-        <p>Whether you need an AI system built from scratch, an Arabic/English NLP solution, or data insights that executives can act on — I'd love to hear about your project.</p>
-        <a href="mailto:esraaahmedibrahim2@gmail.com" class="cemail">✉ esraaahmedibrahim2@gmail.com</a>
-        <div class="csocials">
-          <a href="https://github.com/essraahmed" class="csb" target="_blank">⌥ GitHub</a>
-          <a href="https://www.linkedin.com/in/esraa-ahmed-ibrahim2" class="csb" target="_blank">in LinkedIn</a>
-          <a href="https://medium.com/@essraaahmed" class="csb" target="_blank">✍ Medium</a>
-          <a href="https://public.tableau.com/app/profile/esraa.ahmed" class="csb" target="_blank">◈ Tableau</a>
-        </div>
-      </div>
-      <div class="contact-card fi">
-        <h3>Available for</h3>
-        <div class="ccr"><div class="cci">💼</div><div><div class="ccl">Full-time roles</div><div class="ccv">Data Scientist · AI Engineer · ML Engineer</div></div></div>
-        <div class="ccr"><div class="cci">🔧</div><div><div class="ccl">Freelance &amp; consulting</div><div class="ccv">LLM builds · Arabic NLP · Forecasting · Dashboards</div></div></div>
-        <div class="ccr"><div class="cci">🌐</div><div><div class="ccl">Markets</div><div class="ccv">MENA, Gulf, Europe &amp; Remote globally</div></div></div>
-        <div class="ccr"><div class="cci">📞</div><div><div class="ccl">Phone</div><div class="ccv"><a href="tel:+201067119657">+20 106 711 9657</a></div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span>© 2025 Esraa Ahmed · Data Scientist &amp; AI Engineer</span>
-  <span>Cairo, Egypt 🇪🇬 · Arabic &amp; English</span>
-</footer>
-
-<script>
-  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('v'); }), { threshold: 0.08 });
-  document.querySelectorAll('.fi').forEach(el => obs.observe(el));
-  const img = document.getElementById('pimg');
-  const ph = document.getElementById('pph');
-  if(img && img.getAttribute('src')) { img.onload = () => { ph.style.display='none'; img.style.display='block'; }; }
-</script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
