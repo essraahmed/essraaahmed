@@ -3,245 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esraa Ahmed | AI Engineer</title>
+    <title>Esraa Ahmed | AI Engineer & Data Scientist</title>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
+            --bg: #FDFDFD;
+            --surface: #FFFFFF;
             --accent: #2563eb;
+            --text-main: #18181b;
+            --text-muted: #71717a;
+            --border: #e4e4e7;
             --accent-soft: #eff6ff;
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            background-color: var(--bg); 
-            color: var(--text-main); 
-            font-family: 'Inter', sans-serif;
-            line-height: 1.5;
+            background: var(--bg); color: var(--text-main); 
+            font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6;
         }
 
-        h1, h2, h3, .nav-logo { font-family: 'Outfit', sans-serif; }
-
         nav {
-            position: fixed; top: 0; width: 100%; z-index: 100;
-            padding: 1rem 5%; background: rgba(248, 250, 252, 0.8);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 1.2rem 8%; background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
             display: flex; justify-content: space-between; align-items: center;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* BENTO HERO SECTION */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: auto;
-            gap: 1.5rem;
-            padding-top: 100px;
-            margin-bottom: 4rem;
-        }
-
-        .bento-item {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 24px; padding: 2rem; box-shadow: var(--shadow);
-            transition: transform 0.2s ease;
-        }
-
-        .hero-main { grid-column: span 3; }
-        .hero-stats { grid-column: span 1; display: flex; flex-direction: column; gap: 1rem; }
+        /* HERO & PHOTO BENTO */
+        .hero-section { padding: 120px 0 60px; }
         
-        .stat-box {
-            background: var(--accent-soft); padding: 1.2rem; 
-            border-radius: 16px; text-align: center;
-        }
-        .stat-box h3 { color: var(--accent); font-size: 1.8rem; }
-        .stat-box p { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
-
-        h1 { font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
-        .tagline { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin-bottom: 2rem; }
-
-        /* PROJECT MASONRY */
-        .section-title { margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
-        .section-title::after { content: ""; height: 1px; background: var(--border); flex: 1; }
-
-        .projects-layout {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+        .bento-hero {
+            display: grid; grid-template-columns: 1.5fr 1fr; gap: 1.5rem;
         }
 
-        .project-card {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 20px; padding: 1.5rem; position: relative;
-            display: flex; flex-direction: column; justify-content: space-between;
+        .profile-card {
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 2.5rem; border-radius: 32px; box-shadow: var(--shadow);
+            display: flex; flex-direction: column; justify-content: center;
         }
-        .project-card:hover { border-color: var(--accent); }
+
+        .photo-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 32px; overflow: hidden; position: relative;
+            min-height: 350px; box-shadow: var(--shadow);
+        }
+
+        .photo-card img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(20%);
+        }
+
+        .status-pill {
+            position: absolute; top: 20px; right: 20px;
+            background: #dcfce7; color: #166534; font-weight: 700;
+            padding: 6px 14px; border-radius: 20px; font-size: 0.75rem;
+            display: flex; align-items: center; gap: 6px;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
+        .hero-desc { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; }
+
+        /* METRICS BAR */
+        .metrics-bar {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem;
+        }
+        .metric {
+            background: var(--accent-soft); padding: 1.5rem; border-radius: 20px; text-align: center;
+        }
+        .metric h2 { color: var(--accent); font-size: 2rem; font-weight: 800; }
+        .metric p { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+
+        /* PROFESSIONAL SKILLS MATRIX */
+        .skills-section { padding: 80px 0; }
+        .skill-matrix {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
+        }
+        .skill-category {
+            padding: 1.5rem; border-left: 3px solid var(--accent); background: #fff;
+        }
+        .skill-category h3 { font-size: 0.9rem; color: var(--accent); margin-bottom: 1.5rem; letter-spacing: 1px; }
         
-        .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
-        .project-icon { width: 40px; height: 40px; background: var(--accent-soft); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent); }
-        
-        .tech-pill {
-            background: #f1f5f9; color: #475569; padding: 4px 10px;
-            border-radius: 6px; font-size: 0.75rem; font-weight: 600;
-        }
-
-        /* SKILLS STRIP */
-        .skills-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem;
-        }
-        .skill-group h4 { margin-bottom: 1rem; font-size: 0.9rem; color: var(--accent); text-transform: uppercase; }
-
-        /* FOOTER / CONTACT */
-        .contact-strip {
-            background: var(--text-main); color: white;
-            border-radius: 32px; padding: 3rem; margin: 4rem 0;
+        .skill-item {
             display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 0.8rem; border-bottom: 1px solid #f4f4f5; padding-bottom: 0.4rem;
         }
+        .skill-name { font-weight: 600; font-size: 0.95rem; }
+        .skill-level { font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--text-muted); }
 
-        .btn-primary {
-            background: var(--accent); color: white; padding: 0.8rem 1.5rem;
-            border-radius: 12px; text-decoration: none; font-weight: 600; transition: 0.2s;
+        /* PROJECT CARDS */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+        .project-card {
+            border: 1px solid var(--border); padding: 2rem; border-radius: 24px;
+            transition: all 0.3s ease; background: white;
         }
-        .btn-primary:hover { background: #1d4ed8; }
+        .project-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: var(--shadow); }
+
+        /* CONTACT SECTION */
+        .contact-card {
+            background: var(--text-main); color: white; padding: 4rem;
+            border-radius: 40px; text-align: center; margin-top: 4rem;
+        }
+        .social-links { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; }
+        .social-links a { color: white; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; }
 
         @media (max-width: 900px) {
-            .bento-grid, .projects-layout, .skills-grid { grid-template-columns: 1fr; }
-            .hero-main { grid-column: span 1; }
-            .contact-strip { flex-direction: column; gap: 2rem; text-align: center; }
+            .bento-hero, .metrics-bar { grid-template-columns: 1fr; }
+            .photo-card { min-height: 300px; }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="nav-logo" style="font-weight: 700; font-size: 1.2rem;">ESRAA<span style="color:var(--accent)">.</span></div>
-    <div style="display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 600;">
-        <a href="#work" style="text-decoration: none; color: inherit;">Work</a>
+    <div style="font-weight: 800; font-size: 1.2rem; letter-spacing: -1px;">ESRAA<span style="color:var(--accent)">.</span>AI</div>
+    <div style="display: flex; gap: 2rem; font-size: 0.85rem; font-weight: 600;">
+        <a href="#skills" style="text-decoration: none; color: inherit;">Skills</a>
+        <a href="#projects" style="text-decoration: none; color: inherit;">Projects</a>
         <a href="#contact" style="text-decoration: none; color: inherit;">Contact</a>
     </div>
 </nav>
 
 <div class="container">
-    <div class="bento-grid">
-        <div class="bento-item hero-main">
-            <span style="color: var(--accent); font-weight: 700; font-size: 0.9rem;">DATA SCIENTIST & AI ENGINEER</span>
-            <h1>Turning messy data into <span style="color:var(--accent)">intelligent</span> outcomes.</h1>
-            <p class="tagline">5 years of building end-to-end AI systems. Specialist in Bilingual NLP, Time Series, and Scalable Data Engineering.</p>
-            <div style="display: flex; gap: 1rem;">
-                <a href="#contact" class="btn-primary">Hire me</a>
-                <a href="https://github.com/essraahmed" style="padding: 0.8rem 1.5rem; font-weight: 600; color: var(--text-main); text-decoration: none;">View GitHub →</a>
-            </div>
-        </div>
-        <div class="hero-stats">
-            <div class="stat-box"><h3>95%</h3><p>Accuracy</p></div>
-            <div class="stat-box"><h3>12x</h3><p>Processing</p></div>
-            <div class="stat-box"><h3>87%</h3><p>Automation</p></div>
-        </div>
-    </div>
-
-    <h2 class="section-title" id="work">Selected Projects</h2>
-    <div class="projects-layout">
-        <div class="project-card">
-            <div>
-                <div class="project-header">
-                    <div class="project-icon"><i data-lucide="bot"></i></div>
-                    <span class="tech-pill">LLM & NLP</span>
+    <section class="hero-section">
+        <div class="bento-hero">
+            <div class="profile-card">
+                <h1>AI Engineer & <br><span style="color:var(--accent)">Data Scientist.</span></h1>
+                <p class="hero-desc">Specializing in Arabic NLP, production-grade LLM architectures, and end-to-end data engineering pipelines.</p>
+                
+                <div class="metrics-bar">
+                    <div class="metric"><h2>5+</h2><p>Years Exp.</p></div>
+                    <div class="metric"><h2>15+</h2><p>AI Projects</p></div>
+                    <div class="metric"><h2>95%</h2><p>Accuracy</p></div>
+                    <div class="metric"><h2>2</h2><p>Awards</p></div>
                 </div>
-                <h3>Travelogue AI</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin: 1rem 0;">Ranked 2nd of 43. Bilingual assistant with Whisper & ElevenLabs integration.</p>
             </div>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="tech-pill">LangChain</span><span class="tech-pill">FastAPI</span>
-            </div>
-        </div>
 
-        <div class="project-card">
-            <div>
-                <div class="project-header">
-                    <div class="project-icon"><i data-lucide="database"></i></div>
-                    <span class="tech-pill">Data Engineering</span>
+            <div class="photo-card">
+                <div class="status-pill">
+                    <span style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%;"></span>
+                    Available for Work
                 </div>
-                <h3>EEHC Energy Platform</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin: 1rem 0;">Spark ETL pipeline on Delta Lake processing multi-source government energy data.</p>
-            </div>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="tech-pill">Apache Spark</span><span class="tech-pill">MongoDB</span>
+                <img src="your-photo.jpg" alt="Esraa Ahmed">
             </div>
         </div>
+    </section>
 
-        <div class="project-card">
-            <div>
-                <div class="project-header">
-                    <div class="project-icon"><i data-lucide="trending-up"></i></div>
-                    <span class="tech-pill">Forecasting</span>
-                </div>
-                <h3>Demographic Platform</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin: 1rem 0;">Improved forecast visibility by 70% for government scale population analytics.</p>
+    <section id="skills" class="skills-section">
+        <h2 style="margin-bottom: 3rem;">Technical Expertise</h2>
+        <div class="skill-matrix">
+            <div class="skill-category">
+                <h3>01 / ARTIFICIAL INTELLIGENCE</h3>
+                <div class="skill-item"><span class="skill-name">LLM & RAG</span><span class="skill-level">LangChain</span></div>
+                <div class="skill-item"><span class="skill-name">Arabic NLP</span><span class="skill-level">Classifiers</span></div>
+                <div class="skill-item"><span class="skill-name">Time Series</span><span class="skill-level">ARIMA/Prophet</span></div>
             </div>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="tech-pill">Time Series</span><span class="tech-pill">Tableau</span>
+            <div class="skill-category">
+                <h3>02 / DATA ENGINEERING</h3>
+                <div class="skill-item"><span class="skill-name">ETL Pipelines</span><span class="skill-level">Apache Spark</span></div>
+                <div class="skill-item"><span class="skill-name">Cloud Architecture</span><span class="skill-level">AWS / Docker</span></div>
+                <div class="skill-item"><span class="skill-name">Databases</span><span class="skill-level">SQL / NoSQL</span></div>
+            </div>
+            <div class="skill-category">
+                <h3>03 / ANALYTICS & VIZ</h3>
+                <div class="skill-item"><span class="skill-name">Business Intelligence</span><span class="skill-level">Tableau</span></div>
+                <div class="skill-item"><span class="skill-name">Advanced Analytics</span><span class="skill-level">Pandas / Stats</span></div>
+                <div class="skill-item"><span class="skill-name">Model Deployment</span><span class="skill-level">FastAPI</span></div>
             </div>
         </div>
+    </section>
 
-        <div class="project-card">
-            <div>
-                <div class="project-header">
-                    <div class="project-icon"><i data-lucide="message-square"></i></div>
-                    <span class="tech-pill">Automation</span>
-                </div>
-                <h3>Support AI System</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin: 1rem 0;">Automated 87% of queries with 92% accuracy in an enterprise environment.</p>
+    <section id="projects" style="padding: 80px 0;">
+        <h2 style="margin-bottom: 2rem;">Featured Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <i data-lucide="bot" style="color: var(--accent); margin-bottom: 1rem;"></i>
+                <h3>Bilingual AI Chatbot</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">End-to-end RAG system built with LangChain for customer support automation.</p>
             </div>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="tech-pill">Python</span><span class="tech-pill">Docker</span>
+            <div class="project-card">
+                <i data-lucide="database" style="color: var(--accent); margin-bottom: 1rem;"></i>
+                <h3>Scalable ETL Pipeline</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">Data engineering pipeline for government-scale energy data processing.</p>
+            </div>
+            <div class="project-card">
+                <i data-lucide="line-chart" style="color: var(--accent); margin-bottom: 1rem;"></i>
+                <h3>Forecasting Platform</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">Time series analysis dashboard for high-precision temperature and demand forecasting.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="skills-grid">
-        <div class="skill-group">
-            <h4>Intelligence</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                <span class="tech-pill">LangChain</span><span class="tech-pill">LlamaIndex</span><span class="tech-pill">Arabic NLP</span><span class="tech-pill">Scikit-learn</span>
-            </div>
+    <section id="contact" class="contact-card">
+        <h2>Let's build something intelligent together.</h2>
+        <p style="opacity: 0.7; margin-top: 1rem;">Currently open to full-time roles and expert consulting.</p>
+        
+        <div class="social-links">
+            <a href="mailto:esraaahmedibrahim2@gmail.com"><i data-lucide="mail"></i> Email</a>
+            <a href="https://linkedin.com/in/esraa-ahmed-ibrahim2"><i data-lucide="linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/essraahmed"><i data-lucide="github"></i> GitHub</a>
         </div>
-        <div class="skill-group">
-            <h4>Infrastructure</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                <span class="tech-pill">AWS</span><span class="tech-pill">Apache Spark</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Docker</span>
-            </div>
-        </div>
-        <div class="skill-group">
-            <h4>Insights</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                <span class="tech-pill">Tableau</span><span class="tech-pill">Power BI</span><span class="tech-pill">Time Series</span><span class="tech-pill">SQL</span>
-            </div>
-        </div>
-    </div>
+    </section>
 
-    <div style="margin-top: 4rem; padding: 2rem; border: 1px dashed var(--border); border-radius: 20px;">
-        <h4 style="margin-bottom: 1rem; color: var(--text-muted);">CERTIFICATIONS & AWARDS</h4>
-        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-            <p><strong>AWS Data Analytics Specialty</strong></p>
-            <p><strong>2nd Place</strong> LangChain Hackathon</p>
-            <p><strong>Service Excellence</strong> Fixed Solutions</p>
-        </div>
-    </div>
-
-    <div class="contact-strip" id="contact">
-        <div>
-            <h2>Let's build the future.</h2>
-            <p style="opacity: 0.8;">Available for full-time roles and high-impact consulting.</p>
-        </div>
-        <a href="mailto:esraaahmedibrahim2@gmail.com" class="btn-primary" style="background: white; color: var(--text-main);">Send an Email</a>
-    </div>
-
-    <footer style="padding-bottom: 4rem; text-align: center; color: var(--text-muted); font-size: 0.8rem;">
-        <p>© 2026 Esraa Ahmed. Built for performance.</p>
+    <footer style="padding: 4rem 0; text-align: center; font-size: 0.8rem; color: var(--text-muted);">
+        © 2026 Esraa Ahmed. Powered by clean code & curiosity.
     </footer>
 </div>
 
