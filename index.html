@@ -3,214 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esraa Ahmed | AI Engineer & Data Scientist</title>
+    <title>Esraa Ahmed | AI & Data Engineer</title>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #FDFDFD;
-            --surface: #FFFFFF;
-            --accent: #2563eb;
-            --text-main: #18181b;
-            --text-muted: #71717a;
-            --border: #e4e4e7;
-            --accent-soft: #eff6ff;
-            --shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            --bg: #fdfdfd;
+            --text: #0a0a0a;
+            --muted: #666;
+            --accent: #000; /* High contrast black */
+            --border: #e5e5e5;
+            --hover-bg: #f5f5f5;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            background: var(--bg); color: var(--text-main); 
-            font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6;
+            background: var(--bg); color: var(--text); 
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 1.2rem 8%; background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
-            display: flex; justify-content: space-between; align-items: center;
+        /* --- Layout --- */
+        .wrapper { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 2rem 0; font-family: 'JetBrains Mono'; font-size: 0.8rem;
         }
+        .nav-links a { text-decoration: none; color: var(--muted); margin-left: 2rem; border-bottom: 1px solid transparent; transition: 0.2s; }
+        .nav-links a:hover { color: var(--text); border-color: var(--text); }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-
-        /* HERO & PHOTO BENTO */
-        .hero-section { padding: 120px 0 60px; }
+        /* --- Hero Section --- */
+        .hero { padding: 4rem 0; border-bottom: 1px solid var(--border); }
+        .hero-top { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: end; }
+        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 0.9; letter-spacing: -0.04em; margin-bottom: 2rem; }
+        .hero p { font-size: 1.25rem; max-width: 600px; color: var(--muted); line-height: 1.4; }
         
-        .bento-hero {
-            display: grid; grid-template-columns: 1.5fr 1fr; gap: 1.5rem;
+        .photo-area {
+            width: 100%; aspect-ratio: 1/1; background: #eee; border-radius: 8px;
+            overflow: hidden; filter: grayscale(100%); transition: 0.5s;
         }
+        .photo-area:hover { filter: grayscale(0%); }
+        .photo-area img { width: 100%; height: 100%; object-fit: cover; }
 
-        .profile-card {
-            background: var(--surface); border: 1px solid var(--border);
-            padding: 2.5rem; border-radius: 32px; box-shadow: var(--shadow);
-            display: flex; flex-direction: column; justify-content: center;
+        /* --- Metrics & Availability --- */
+        .info-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 1px; background: var(--border); margin: 4rem 0; border: 1px solid var(--border);
         }
+        .info-item { background: var(--bg); padding: 2rem; text-align: left; }
+        .info-item label { display: block; font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--muted); margin-bottom: 0.5rem; text-transform: uppercase; }
+        .info-item span { font-size: 1.5rem; font-weight: 700; }
+        .status-badge { display: flex; align-items: center; gap: 0.5rem; color: #166534; font-weight: 500; font-size: 0.9rem; }
+        .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; }
 
-        .photo-card {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: 32px; overflow: hidden; position: relative;
-            min-height: 350px; box-shadow: var(--shadow);
+        /* --- Projects --- */
+        .section-header { padding: 2rem 0; font-family: 'JetBrains Mono'; font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 4rem; }
+        .project-list { border-top: 1px solid var(--border); }
+        .project-row { 
+            display: grid; grid-template-columns: 1fr 2fr 1fr; padding: 2rem 0;
+            border-bottom: 1px solid var(--border); transition: 0.3s; cursor: pointer;
+            text-decoration: none; color: inherit;
         }
+        .project-row:hover { background: var(--hover-bg); padding-left: 1rem; padding-right: 1rem; }
+        .project-row .year { font-family: 'JetBrains Mono'; color: var(--muted); }
+        .project-row h3 { font-size: 1.5rem; }
+        .project-row .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+        .tag { border: 1px solid var(--border); padding: 2px 8px; border-radius: 100px; font-size: 0.7rem; }
 
-        .photo-card img {
-            width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(20%);
-        }
+        /* --- Skills Matrix --- */
+        .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0; }
+        .skill-cat h4 { margin-bottom: 1rem; font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--muted); }
+        .skill-list { list-style: none; line-height: 2; font-size: 1.1rem; }
 
-        .status-pill {
-            position: absolute; top: 20px; right: 20px;
-            background: #dcfce7; color: #166534; font-weight: 700;
-            padding: 6px 14px; border-radius: 20px; font-size: 0.75rem;
-            display: flex; align-items: center; gap: 6px;
-        }
+        /* --- Contact --- */
+        .footer { padding: 6rem 0; text-align: center; }
+        .contact-large { font-size: clamp(2rem, 5vw, 4rem); letter-spacing: -0.02em; text-decoration: none; color: var(--text); transition: 0.3s; }
+        .contact-large:hover { opacity: 0.5; }
+        .socials { display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; font-family: 'JetBrains Mono'; }
+        .socials a { text-decoration: none; color: var(--text); border-bottom: 1px solid var(--text); }
 
-        h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
-        .hero-desc { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; }
-
-        /* METRICS BAR */
-        .metrics-bar {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem;
-        }
-        .metric {
-            background: var(--accent-soft); padding: 1.5rem; border-radius: 20px; text-align: center;
-        }
-        .metric h2 { color: var(--accent); font-size: 2rem; font-weight: 800; }
-        .metric p { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
-
-        /* PROFESSIONAL SKILLS MATRIX */
-        .skills-section { padding: 80px 0; }
-        .skill-matrix {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
-        }
-        .skill-category {
-            padding: 1.5rem; border-left: 3px solid var(--accent); background: #fff;
-        }
-        .skill-category h3 { font-size: 0.9rem; color: var(--accent); margin-bottom: 1.5rem; letter-spacing: 1px; }
-        
-        .skill-item {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 0.8rem; border-bottom: 1px solid #f4f4f5; padding-bottom: 0.4rem;
-        }
-        .skill-name { font-weight: 600; font-size: 0.95rem; }
-        .skill-level { font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--text-muted); }
-
-        /* PROJECT CARDS */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
-        .project-card {
-            border: 1px solid var(--border); padding: 2rem; border-radius: 24px;
-            transition: all 0.3s ease; background: white;
-        }
-        .project-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: var(--shadow); }
-
-        /* CONTACT SECTION */
-        .contact-card {
-            background: var(--text-main); color: white; padding: 4rem;
-            border-radius: 40px; text-align: center; margin-top: 4rem;
-        }
-        .social-links { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; }
-        .social-links a { color: white; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; }
-
-        @media (max-width: 900px) {
-            .bento-hero, .metrics-bar { grid-template-columns: 1fr; }
-            .photo-card { min-height: 300px; }
+        @media (max-width: 768px) {
+            .hero-top, .project-row, .skills-grid { grid-template-columns: 1fr; }
+            .project-row .tags { justify-content: flex-start; margin-top: 1rem; }
+            .hero h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <div style="font-weight: 800; font-size: 1.2rem; letter-spacing: -1px;">ESRAA<span style="color:var(--accent)">.</span>AI</div>
-    <div style="display: flex; gap: 2rem; font-size: 0.85rem; font-weight: 600;">
-        <a href="#skills" style="text-decoration: none; color: inherit;">Skills</a>
-        <a href="#projects" style="text-decoration: none; color: inherit;">Projects</a>
-        <a href="#contact" style="text-decoration: none; color: inherit;">Contact</a>
+<div class="wrapper">
+    <nav>
+        <div class="logo">ESRAA AHMED / 2026</div>
+        <div class="nav-links">
+            <a href="#work">WORK</a>
+            <a href="#skills">EXPERTISE</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-top">
+            <div>
+                <h1>Building the <br>Intelligent <br>Infrastructure.</h1>
+                <p>Data Scientist & AI Engineer bridging the gap between raw data and bilingual LLM production systems.</p>
+            </div>
+            <div class="photo-area">
+                <img src="YOUR_PHOTO_PATH.jpg" alt="Esraa Ahmed">
+            </div>
+        </div>
+    </section>
+
+    <div class="info-grid">
+        <div class="info-item">
+            <label>Availability</label>
+            <div class="status-badge"><span class="dot"></span> Open to Work</div>
+        </div>
+        <div class="info-item">
+            <label>Experience</label>
+            <span>5+ Years</span>
+        </div>
+        <div class="info-item">
+            <label>Forecast Accuracy</label>
+            <span>95.0%</span>
+        </div>
+        <div class="info-item">
+            <label>Pipeline Speed</label>
+            <span>12x Faster</span>
+        </div>
     </div>
-</nav>
 
-<div class="container">
-    <section class="hero-section">
-        <div class="bento-hero">
-            <div class="profile-card">
-                <h1>AI Engineer & <br><span style="color:var(--accent)">Data Scientist.</span></h1>
-                <p class="hero-desc">Specializing in Arabic NLP, production-grade LLM architectures, and end-to-end data engineering pipelines.</p>
-                
-                <div class="metrics-bar">
-                    <div class="metric"><h2>5+</h2><p>Years Exp.</p></div>
-                    <div class="metric"><h2>15+</h2><p>AI Projects</p></div>
-                    <div class="metric"><h2>95%</h2><p>Accuracy</p></div>
-                    <div class="metric"><h2>2</h2><p>Awards</p></div>
-                </div>
+    <div class="section-header">SELECTED WORK</div>
+    <div class="project-list" id="work">
+        <a href="#" class="project-row">
+            <div class="year">2023</div>
+            <h3>Travelogue AI Assistant</h3>
+            <div class="tags">
+                <span class="tag">LANGCHAIN</span><span class="tag">NLP</span><span class="tag">BILINGUAL</span>
             </div>
+        </a>
+        <a href="#" class="project-row">
+            <div class="year">2023</div>
+            <h3>EEHC Energy Platform</h3>
+            <div class="tags">
+                <span class="tag">ETL</span><span class="tag">SPARK</span><span class="tag">DATA ENG.</span>
+            </div>
+        </a>
+        <a href="#" class="project-row">
+            <div class="year">2024</div>
+            <h3>Demographic Forecast System</h3>
+            <div class="tags">
+                <span class="tag">TIME SERIES</span><span class="tag">TABLEAU</span>
+            </div>
+        </a>
+        <a href="#" class="project-row">
+            <div class="year">2024</div>
+            <h3>Enterprise Support AI</h3>
+            <div class="tags">
+                <span class="tag">LLM</span><span class="tag">DOCKER</span><span class="tag">RAG</span>
+            </div>
+        </a>
+    </div>
 
-            <div class="photo-card">
-                <div class="status-pill">
-                    <span style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%;"></span>
-                    Available for Work
-                </div>
-                <img src="your-photo.jpg" alt="Esraa Ahmed">
-            </div>
+    <div class="section-header" id="skills">CORE EXPERTISE</div>
+    <div class="skills-grid">
+        <div class="skill-cat">
+            <h4>INTELLIGENCE</h4>
+            <ul class="skill-list">
+                <li>Arabic NLP</li>
+                <li>LLM & RAG Systems</li>
+                <li>Time Series Analysis</li>
+                <li>Scikit-learn / Stats</li>
+            </ul>
+        </div>
+        <div class="skill-cat">
+            <h4>ENGINEERING</h4>
+            <ul class="skill-list">
+                <li>ETL Pipelines</li>
+                <li>Apache Spark</li>
+                <li>AWS Cloud Architecture</li>
+                <li>Docker / FastAPI</li>
+            </ul>
+        </div>
+        <div class="skill-cat">
+            <h4>INSIGHTS</h4>
+            <ul class="skill-list">
+                <li>Tableau / Power BI</li>
+                <li>Pandas / NumPy</li>
+                <li>SQL / MongoDB</li>
+                <li>Business Intelligence</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-header">RECOGNITION</div>
+    <div style="padding: 2rem 0;">
+        <p style="font-size: 1.25rem;"><strong>AWS Data Analytics Specialty</strong> — Amazon Web Services</p>
+        <p style="font-size: 1.25rem; margin-top: 1rem;"><strong>2nd Place</strong> — LangChain Hackathon (Global)</p>
+    </div>
+
+    <section class="footer" id="contact">
+        <label style="font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--muted);">GET IN TOUCH</label><br><br>
+        <a href="mailto:esraaahmedibrahim2@gmail.com" class="contact-large">esraaahmedibrahim2@gmail.com</a>
+        <div class="socials">
+            <a href="https://linkedin.com/in/esraa-ahmed-ibrahim2">LINKEDIN</a>
+            <a href="https://github.com/essraahmed">GITHUB</a>
+            <a href="#">RESUME</a>
         </div>
     </section>
-
-    <section id="skills" class="skills-section">
-        <h2 style="margin-bottom: 3rem;">Technical Expertise</h2>
-        <div class="skill-matrix">
-            <div class="skill-category">
-                <h3>01 / ARTIFICIAL INTELLIGENCE</h3>
-                <div class="skill-item"><span class="skill-name">LLM & RAG</span><span class="skill-level">LangChain</span></div>
-                <div class="skill-item"><span class="skill-name">Arabic NLP</span><span class="skill-level">Classifiers</span></div>
-                <div class="skill-item"><span class="skill-name">Time Series</span><span class="skill-level">ARIMA/Prophet</span></div>
-            </div>
-            <div class="skill-category">
-                <h3>02 / DATA ENGINEERING</h3>
-                <div class="skill-item"><span class="skill-name">ETL Pipelines</span><span class="skill-level">Apache Spark</span></div>
-                <div class="skill-item"><span class="skill-name">Cloud Architecture</span><span class="skill-level">AWS / Docker</span></div>
-                <div class="skill-item"><span class="skill-name">Databases</span><span class="skill-level">SQL / NoSQL</span></div>
-            </div>
-            <div class="skill-category">
-                <h3>03 / ANALYTICS & VIZ</h3>
-                <div class="skill-item"><span class="skill-name">Business Intelligence</span><span class="skill-level">Tableau</span></div>
-                <div class="skill-item"><span class="skill-name">Advanced Analytics</span><span class="skill-level">Pandas / Stats</span></div>
-                <div class="skill-item"><span class="skill-name">Model Deployment</span><span class="skill-level">FastAPI</span></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" style="padding: 80px 0;">
-        <h2 style="margin-bottom: 2rem;">Featured Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <i data-lucide="bot" style="color: var(--accent); margin-bottom: 1rem;"></i>
-                <h3>Bilingual AI Chatbot</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">End-to-end RAG system built with LangChain for customer support automation.</p>
-            </div>
-            <div class="project-card">
-                <i data-lucide="database" style="color: var(--accent); margin-bottom: 1rem;"></i>
-                <h3>Scalable ETL Pipeline</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">Data engineering pipeline for government-scale energy data processing.</p>
-            </div>
-            <div class="project-card">
-                <i data-lucide="line-chart" style="color: var(--accent); margin-bottom: 1rem;"></i>
-                <h3>Forecasting Platform</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">Time series analysis dashboard for high-precision temperature and demand forecasting.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-card">
-        <h2>Let's build something intelligent together.</h2>
-        <p style="opacity: 0.7; margin-top: 1rem;">Currently open to full-time roles and expert consulting.</p>
-        
-        <div class="social-links">
-            <a href="mailto:esraaahmedibrahim2@gmail.com"><i data-lucide="mail"></i> Email</a>
-            <a href="https://linkedin.com/in/esraa-ahmed-ibrahim2"><i data-lucide="linkedin"></i> LinkedIn</a>
-            <a href="https://github.com/essraahmed"><i data-lucide="github"></i> GitHub</a>
-        </div>
-    </section>
-
-    <footer style="padding: 4rem 0; text-align: center; font-size: 0.8rem; color: var(--text-muted);">
-        © 2026 Esraa Ahmed. Powered by clean code & curiosity.
-    </footer>
 </div>
 
 <script>
