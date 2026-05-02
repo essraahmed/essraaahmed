@@ -86,18 +86,18 @@ h1{font-family:var(--serif);font-size:clamp(3rem,5.5vw,5rem);font-weight:400;lin
 .ltag{font-family:var(--mono);font-size:.7rem;background:rgba(79,70,229,.06);border:1px solid rgba(79,70,229,.15);color:var(--purple);padding:.2rem .65rem;border-radius:4px}
 /* Hero right — metrics grid */
 .hero-right{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-self:center}
-.hmc{background:#fff;border:1px solid var(--gb);border-radius:14px;padding:1.5rem 1.25rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:transform .2s,border-color .2s,box-shadow .2s}
+.hmc{background:#fff;border:1px solid var(--gb);border-radius:14px;padding:2rem 1.5rem;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:transform .2s,border-color .2s,box-shadow .2s}
 .hmc:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.07)}
 .hmc:nth-child(1){border-top:2px solid var(--purple)}
-.hmc:nth-child(2){border-top:2px solid var(--gold)}
+.hmc:nth-child(2){border-top:2px solid var(--purple)}
 .hmc:nth-child(3){border-top:2px solid var(--purple)}
-.hmc:nth-child(4){border-top:2px solid var(--gold)}
-.hmc-icon{font-size:1.3rem;margin-bottom:.5rem}
-.hmc-num{font-family:var(--serif);font-size:2.4rem;font-weight:400;line-height:1}
+.hmc:nth-child(4){border-top:2px solid var(--purple)}
+.hmc-icon{display:none}
+.hmc-num{font-family:var(--serif);font-size:3.2rem;font-weight:400;line-height:1}
 .hmc:nth-child(1) .hmc-num{color:var(--purple)}
-.hmc:nth-child(2) .hmc-num{color:var(--gold)}
+.hmc:nth-child(2) .hmc-num{color:var(--purple)}
 .hmc:nth-child(3) .hmc-num{color:var(--purple)}
-.hmc:nth-child(4) .hmc-num{color:var(--gold)}
+.hmc:nth-child(4) .hmc-num{color:var(--purple)}
 .hmc-num em{font-family:var(--sans);font-size:1.3rem;font-style:normal}
 .hmc-label{font-size:.72rem;color:var(--muted);font-family:var(--mono);letter-spacing:.04em;margin-top:.3rem}
 .avail{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--purple);background:var(--purple-g);border:1px solid rgba(79,70,229,.15);padding:.35rem .85rem;border-radius:99px}
@@ -122,14 +122,14 @@ h2.sh{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:40
 .mc3::before{background:radial-gradient(circle at 50% 50%,rgba(79,70,229,.05),transparent 70%)}
 .mc4::before{background:radial-gradient(circle at 50% 50%,rgba(180,83,9,.05),transparent 70%)}
 .mc:hover.mc1{border-color:rgba(79,70,229,.3)}
-.mc:hover.mc2{border-color:rgba(79,70,229,.3)}
+.mc:hover.mc2{border-color:rgba(217,119,6,.3)}
 .mc:hover.mc3{border-color:rgba(79,70,229,.3)}
-.mc:hover.mc4{border-color:rgba(79,70,229,.3)}
+.mc:hover.mc4{border-color:rgba(180,83,9,.3)}
 .mc-num{font-family:var(--serif);font-size:3.2rem;font-weight:400;line-height:1;margin-bottom:.4rem}
 .mc1 .mc-num{color:var(--purple)}
-.mc2 .mc-num{color:var(--purple)}
+.mc2 .mc-num{color:var(--gold)}
 .mc3 .mc-num{color:var(--purple)}
-.mc4 .mc-num{color:var(--purple)}
+.mc4 .mc-num{color:var(--gold)}
 .mc-num em{font-family:var(--sans);font-size:1.8rem;font-style:normal}
 .mc-label{font-size:.82rem;color:var(--muted);letter-spacing:.03em;font-weight:500}
 
@@ -171,7 +171,7 @@ h2.sh{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:40
 .pc-c .pcat{color:var(--purple)}
 .pc-g .pcat{color:var(--gold)}
 .pname{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--text);margin-bottom:.5rem;line-height:1.3}
-.pout{display:inline-flex;align-items:center;gap:.4rem;font-size:.73rem;font-weight:600;color:var(--green);background:rgba(79,70,229,.06);border:1px solid rgba(79,70,229,.12);padding:.25rem .6rem;border-radius:5px;margin-bottom:.75rem}
+.pout{display:inline-flex;align-items:center;gap:.4rem;font-size:.73rem;font-weight:600;color:var(--purple);background:rgba(79,70,229,.06);border:1px solid rgba(79,70,229,.12);padding:.25rem .6rem;border-radius:5px;margin-bottom:.75rem}
 .pdesc{color:var(--muted);font-size:.82rem;line-height:1.7;margin-bottom:1rem;flex:1}
 .pdesc strong{color:var(--text);font-weight:600}
 .pstack{display:flex;flex-wrap:wrap;gap:.35rem}
@@ -317,22 +317,22 @@ footer{position:relative;z-index:2;padding:1.75rem 0;border-top:1px solid var(--
     </div>
     <div class="hero-right fi2">
       <div class="hmc">
-        <!-- <div class="hmc-icon">🗓️</div> -->
+        <div class="hmc-icon">🗓️</div>
         <div class="hmc-num"><span class="cnt" data-target="5">0</span><em>+</em></div>
         <div class="hmc-label">Years Experience</div>
       </div>
       <div class="hmc">
-      <!--  <div class="hmc-icon">🚀</div> -->
+        <div class="hmc-icon">🚀</div>
         <div class="hmc-num"><span class="cnt" data-target="8">0</span><em>+</em></div>
         <div class="hmc-label">Projects Shipped</div>
       </div>
       <div class="hmc">
-      <!--  <div class="hmc-icon">🏭</div> -->
+        <div class="hmc-icon">🏭</div>
         <div class="hmc-num"><span class="cnt" data-target="4">0</span><em>+</em></div>
         <div class="hmc-label">Industries Served</div>
       </div>
       <div class="hmc">
-       <!-- <div class="hmc-icon">🏆</div> -->
+        <div class="hmc-icon">🏆</div>
         <div class="hmc-num"><span class="cnt" data-target="2">0</span></div>
         <div class="hmc-label">Awards Won</div>
       </div>
@@ -385,8 +385,7 @@ footer{position:relative;z-index:2;padding:1.75rem 0;border-top:1px solid var(--
 
       <!-- 3 -->
       <div class="pc pc-p fi">
-       <!-- <div class="ptop"><div class="pnum">03</div> --> 
-        <div class="pbadge">🥈 2nd / 43 — LangChain Hackathon</div></div>
+       <!-- <div class="ptop"><div class="pnum">03</div><div class="pbadge">🥈 2nd / 43 — LangChain Hackathon</div></div> -->
         <div class="pcat">NLP · LLM · Chatbot</div>
         <div class="pname">Travelogue — AI Tourism Chatbot</div>
         <div class="pout">↑ 86% Arabic accuracy · Voice-enabled · Real-time</div>
@@ -542,7 +541,6 @@ footer{position:relative;z-index:2;padding:1.75rem 0;border-top:1px solid var(--
 
 <footer>
   <div class="footer-inner">
-    <span>© 2026 Esraa Ahmed · Data Scientist &amp; AI Engineer</span>
   <span style="display:flex;gap:.6rem;align-items:center">
     <a href="https://github.com/essraahmed" target="_blank" title="GitHub" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--gb);border-radius:7px;background:#fff;text-decoration:none;transition:border-color .2s,transform .15s" onmouseover="this.style.borderColor='var(--purple)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--gb)';this.style.transform='none'">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="#374151"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
@@ -560,6 +558,7 @@ footer{position:relative;z-index:2;padding:1.75rem 0;border-top:1px solid var(--
       <svg width="16" height="16" viewBox="0 0 24 24" fill="#374151"><path d="M11.654.174v3.131H9.308V.174h2.346zm0 20.521v3.131H9.308v-3.131h2.346zM23.826 11.48v2.348h-3.131V11.48h3.131zM3.305 11.48v2.348H.174V11.48h3.131zm17.39-6.37 1.658 1.657-2.213 2.214-1.658-1.657 2.213-2.214zM3.86 16.975l1.658 1.657-2.213 2.214-1.658-1.658 2.213-2.213zM20.695 16.975l2.213 2.213-1.658 1.658-2.213-2.214 1.658-1.657zM5.518 3.453 3.305 5.666 1.647 4.009l2.213-2.213 1.658 1.657zM13.306 5.8v4.174h4.174v4.347H13.306v4.174H8.959v-4.174H4.785v-4.347H8.96V5.801h4.347z"/></svg>
     </a>
   </span>
+    <span style="text-align:right">© 2026 Esraa Ahmed · Data Scientist &amp; AI Engineer</span>
   </div>
 </footer>
 
