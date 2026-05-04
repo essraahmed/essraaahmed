@@ -245,7 +245,18 @@ footer{position:relative;z-index:2;padding:1.75rem 5rem;border-top:1px solid var
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 
 
-/* ─── FADE IN ─── */
+/* ─── HAMBURGER ─── */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:none;border:1px solid var(--gb);border-radius:8px;cursor:pointer;padding:8px;transition:border-color .2s}
+.hamburger:hover{border-color:var(--purple)}
+.hamburger span{display:block;width:100%;height:2px;background:var(--text);border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;z-index:99;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--gb);padding:1.25rem 1.5rem;flex-direction:column;gap:.25rem;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:500;padding:.75rem 1rem;border-radius:8px;transition:background .2s,color .2s;border:1px solid transparent}
+.mobile-nav a:hover{background:var(--purple-g);color:var(--purple);border-color:rgba(79,70,229,.12)}
+.mobile-nav .mnhire{background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff!important;text-align:center;margin-top:.5rem;border:none!important;font-weight:700}
 .fi{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .fi.v{opacity:1;transform:translateY(0)}
 .fi2{opacity:0;transform:translateY(22px);transition:opacity .6s .12s ease,transform .6s .12s ease}
@@ -257,6 +268,7 @@ footer{position:relative;z-index:2;padding:1.75rem 5rem;border-top:1px solid var
 @media(max-width:960px){
   nav{padding:0 1.5rem}
   .nlinks{display:none}
+  .hamburger{display:flex}
   .hero{padding:7rem 1.5rem 4rem}
   .hero-inner{grid-template-columns:1fr;gap:2.5rem}
   .hero-right{grid-template-columns:1fr 1fr}
@@ -287,8 +299,20 @@ footer{position:relative;z-index:2;padding:1.75rem 5rem;border-top:1px solid var
     <li><a href="#skills">Skills</a></li>
     <li><a href="#awards">Awards</a></li>
     <li><a href="#contact" class="nhire">Hire me</a></li>
-  </ul>
+  <button class="hamburger" id="hbg" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mnav">
+  <a href="#about" class="mnlink">About</a>
+  <a href="#projects" class="mnlink">Projects</a>
+  <a href="#services" class="mnlink">Services</a>
+  <a href="#skills" class="mnlink">Skills</a>
+  <a href="#awards" class="mnlink">Awards</a>
+  <a href="#contact" class="mnhire mnlink">Hire me</a>
+</div>
 
 <!-- HERO -->
 <div class="hero" id="top">
@@ -351,7 +375,7 @@ footer{position:relative;z-index:2;padding:1.75rem 5rem;border-top:1px solid var
   <div class="si">
     <p class="slabel fi">About</p>
     <h2 class="sh fi">The person behind the models</h2>
-    <div style="display:grid;grid-template-columns:1fr;gap:3rem;margin-top:.5rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:.5rem">
       <p style="color:var(--muted);font-size:.97rem;line-height:1.9" class="fi">I'm Esraa, a <strong style="color:var(--text);font-weight:600">Data Scientist &amp; AI Engineer</strong> with a B.Sc. in Computer Science, I have 5 years of experience delivering end-to-end AI and ML systems across NLP, LLMs, forecasting, and data engineering. I specialize in systems that <strong style="color:var(--text);font-weight:600">scale in production</strong>.</p>
       <p style="color:var(--muted);font-size:.97rem;line-height:1.9" class="fi2">What sets me apart is sitting comfortably on <strong style="color:var(--text);font-weight:600">both sides of the table</strong>. I've architected solutions with stakeholders and leads, and I've presented results to operations managers. I have a deep focus on Arabic NLP, sentiment analysis, and chatbots.</p>
     </div>
@@ -578,6 +602,26 @@ footer{position:relative;z-index:2;padding:1.75rem 5rem;border-top:1px solid var
 </footer>
 
 <script>
+// Hamburger menu
+const hbg = document.getElementById('hbg');
+const mnav = document.getElementById('mnav');
+hbg.addEventListener('click', () => {
+  hbg.classList.toggle('open');
+  mnav.classList.toggle('open');
+});
+document.querySelectorAll('.mnlink').forEach(link => {
+  link.addEventListener('click', () => {
+    hbg.classList.remove('open');
+    mnav.classList.remove('open');
+  });
+});
+document.addEventListener('click', e => {
+  if (!hbg.contains(e.target) && !mnav.contains(e.target)) {
+    hbg.classList.remove('open');
+    mnav.classList.remove('open');
+  }
+});
+
 // Scroll fade-in
 const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('v'); }), {threshold:.08});
 document.querySelectorAll('.fi,.fi2,.fi3').forEach(el => obs.observe(el));
